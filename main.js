@@ -1,15 +1,11 @@
-
+/*example of initialized variable*/
 let playerMove = "rock";
 let computerMove = "paper";
-
-
-
 /*
 /////List all the possibilities//////
 player(paper) vs computer(rock) == player win//
 player(rock) vs computer(scissors) == player win//
 player(scissors) vs computer(papers) == player win//
-
 */
 
 
@@ -20,8 +16,6 @@ We initialize the player and the computer variable
 let player;
 let computer;
 let myName=prompt("Plis enter your name");
-
-
 /* 
 while loop to check if the username we choose with prompt is not grater than 10 
 if the username is grater than 10 the while loop will keep ask the name forever
