@@ -42,24 +42,31 @@ function getWinner(player, computer) {
     if(player === "rock" && computer === "scissors"){
         alert(`${myName}  Win!!`);
         playerWins++
+        return 1;
     }else if(player === "scissors" && computer === "paper"){
         alert(`${myName}  Win!!`);
         playerWins++
+        return 1;
     }else if (player === "paper" && computer === "rock"){
         alert(`${myName}  Win!!`);
         playerWins++
+        return 1;
     }else if(player === "rock" && computer === "rock"){
         alert("It's a draw");
         numbersOfDraws++
+        return 0;
     }else if(player === "paper" && computer === "paper"){
         alert("It's a draw");
         numbersOfDraws++
+        return 0;
     }else if(player === "scissors" && computer === "scissors"){
         alert("It's a draw");
         numbersOfDraws++
+        return 0;
     }else{
         alert("Computer  Win!!");
         computerWins++
+        return -1;
     }
 }
 
