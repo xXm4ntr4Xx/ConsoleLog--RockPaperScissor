@@ -111,10 +111,10 @@ function getWinner(player, computer) {
         
     let gameContinue = prompt(`Would  you like to continue?`)
 
-    if(gameContinue === "yes"){
-        alert("OK keep playing");
-    }else{
+    if(gameContinue === "no"){
         break;
+    }else{
+        alert("OK keep playing");
     }
 }
 
