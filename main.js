@@ -12,47 +12,46 @@ player(scissors) vs computer(papers) == player win//
 
 */
 
+
 /*
-////if statement for check all the win possibility in the game////
-if(player === "rock" && computer === "paper"){
-    console.log("Computer Win!!");
-}else if(player === "rock" && computer === "rock"){
-    console.log("It's a draw");
-}else if(player === "paper" && computer === "paper"){
-    console.log("It's a draw");
-}else if(player === "scissors" && computer === "scissors"){
-    console.log("It's a draw");
-}else if(player === "paper" && computer === "rock"){
-    console.log("Player win");
-}else if(player === "scissors" && computer === "rock"){
-    console.log("Computer win");
-}else if(player === "rock" && computer === "scissors"){
-    console.log("Player win");
-}
-
+We wrote a prompt function to select the name of the player
+We initialize the player and the computer variable
 */
-
-///// here we write the function and we initialize the player/////
-
 let player;
 let computer;
+let myName=prompt("Plis enter your name");
 
-/// Score Information////
+
+/* 
+while loop to check if the username we choose with prompt is not grater than 10 
+if the username is grater than 10 the while loop will keep ask the name forever
+if the name is less then 11 will start the game
+*/
+while(myName.length > 10){
+    alert("Please enter shorter name!");
+    myName=prompt("Plis enter your name");
+}
+alert(`Hello ${myName} !!!!, Welcome to the game!!!`);
+
+
+
+/// SCORE TABLE////
 let playerWins=0;
 let computerWins=0;
 let numbersOfDraws=0;
+
 
 /// we create the function and we put inside all the game possibilities using the if statement////
 function getWinner(player, computer) {
     
     if(player === "rock" && computer === "scissors"){
-        alert("Player  Win!!");
+        alert(`${myName}  Win!!`);
         playerWins++
     }else if(player === "scissors" && computer === "paper"){
-        alert("Player  Win!!");
+        alert(`${myName}  Win!!`);
         playerWins++
     }else if (player === "paper" && computer === "rock"){
-        alert("Player  Win!!");
+        alert(`${myName}  Win!!`);
         playerWins++
     }else if(player === "rock" && computer === "rock"){
         alert("It's a draw");
@@ -69,51 +68,52 @@ function getWinner(player, computer) {
     }
 }
 
-  //let result = getWinner("rock", "paper");
-//  we save the player input inside the  playerchoice variable
-// we alert the player choice variable
-  //let playerChoice = prompt("What move you choose?")
-  //alert(playerChoice);
 
+    /* use gameRound to check the number of rounds */
+    let gameRound = 0;
 
-  // create an array with the 3 differetn moves
-  //const moves=["rock","paper","scissors"]
-  // we write the math random function and we use for our array
-  //const randomMoves = Math.floor(Math.random() * moves.length);
-  // we console log the result
-  //console.log(randomMoves, moves[randomMoves]);
-  
-
-  
-  
-
-
-  let gameRound = 0;
-
-  while(gameRound < 6){
-
+    /* The game will carry on until we reach the number of rounds */
+    while(gameRound < 6){
+    console.warn(`GAME ${gameRound} !!!`);
+    /*
+    prompt asking the user which one of the moves they choose inside the moves array
+    we use the confirm to check if this is our last choice 
+    we use the Math.floor and Math.random function to randomize the computer choice
+    */
     let playerChoice = prompt("What move you choose?")
     confirm("Are you sure you choose " + playerChoice + " ?");
     const moves=["rock","paper","scissors"]
     const randomMoves = Math.floor(Math.random() * moves.length);
-
-
-    let result = getWinner(playerChoice,moves[randomMoves] );
-    console.log(`player choose: ${playerChoice}`)
-    console.log(`computer choose: ${moves[randomMoves]}`)
-
-    // we need to implement the stop
-
+    /*
+    we use the getwinner function to check the if the player and the computer win/lose/draw
+    console.log Player and Computer choice
+    */
+    getWinner(playerChoice,moves[randomMoves] );
+    console.log(`${myName} choose: ${playerChoice}`);
+    console.log(`Computer choose: ${moves[randomMoves]}`);
+    /*
+    we increase the gamerounds variable every round by one 
+    we displayed the amount of win of Player/Computer
+    we displayed the amount of drow
+    we displayed the amount of rounds
+    */
     gameRound++
-  }
+    console.log(`${myName} won : ${playerWins} games`);
+    console.log(`Computer won : ${computerWins} games`);
+    console.log(`${numbersOfDraws} games draw`);
+    console.log(`Total of round : ${gameRound}`);
+    /* 
+    logic for choose when to stop the game
+    we asked the player if want to continue with the game inside the gameContinue variable(if the answer is "yes" the game will continue, else will break out of the if statement and while loop) 
+    */
+        
+    let gameContinue = prompt(`Would  you like to continue?`)
 
-console.log(`Player won : ${playerWins} games`);
-console.log(`Computer won : ${computerWins} games`);
-console.log(`${numbersOfDraws} games draw`);
-console.log(`${gameRound} round`);
+    if(gameContinue === "yes"){
+        alert("OK keep playing");
+    }else{
+        break;
+    }
+}
 
-  //score table(set game=0 and set game++(every time we choose our moves the game will increase by one))
-//let numbersOfGame=0;
-//let playerWins=0;
-//let computerWins=0;
-//let numbersOfDraws=0;
+
