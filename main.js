@@ -16,6 +16,7 @@ We initialize the player and the computer variable
 let player;
 let computer;
 let myName=prompt("Plis enter your name");
+myName = myName[0].toUpperCase() + myName.slice(1);
 /* 
 while loop to check if the username we choose with prompt is not grater than 10 
 if the username is grater than 10 the while loop will keep ask the name forever
