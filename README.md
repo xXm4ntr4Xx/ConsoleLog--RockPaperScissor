@@ -1,2 +1,2 @@
 # RockPaperScissor
->The game will work o console
+>The game will work on console
