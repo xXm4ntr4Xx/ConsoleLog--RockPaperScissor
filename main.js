@@ -16,16 +16,17 @@ We initialize the player and the computer variable
 let player;
 let computer;
 let myName=prompt("Plis enter your name");
-myName = myName[0].toUpperCase() + myName.slice(1);
+
 /* 
 while loop to check if the username we choose with prompt is not grater than 10 
 if the username is grater than 10 the while loop will keep ask the name forever
 if the name is less then 11 will start the game
 */
-while(myName.length > 10){
+while(myName.length > 10 || myName.length < 1 ) {
     alert("Please enter shorter name!");
     myName=prompt("Plis enter your name");
 }
+myName = myName[0].toUpperCase() + myName.slice(1);
 alert(`Hello ${myName} !!!!, Welcome to the game!!!`);
 
 
@@ -41,30 +42,37 @@ function getWinner(player, computer) {
     
     if(player === "rock" && computer === "scissors"){
         alert(`${myName}  Win!!`);
+        console.warn(`${myName}  Win!!`);
         playerWins++
         return 1;
     }else if(player === "scissors" && computer === "paper"){
         alert(`${myName}  Win!!`);
+        console.warn(`${myName}  Win!!`);
         playerWins++
         return 1;
     }else if (player === "paper" && computer === "rock"){
         alert(`${myName}  Win!!`);
+        console.warn(`${myName}  Win!!`);
         playerWins++
         return 1;
     }else if(player === "rock" && computer === "rock"){
         alert("It's a draw");
+        console.warn("It's a draw");
         numbersOfDraws++
         return 0;
     }else if(player === "paper" && computer === "paper"){
         alert("It's a draw");
+        console.warn("It's a draw");
         numbersOfDraws++
         return 0;
     }else if(player === "scissors" && computer === "scissors"){
         alert("It's a draw");
+        console.warn("It's a draw");
         numbersOfDraws++
         return 0;
     }else{
         alert("Computer  Win!!");
+        console.warn("Computer  Win!!");
         computerWins++
         return -1;
     }
@@ -109,12 +117,12 @@ function getWinner(player, computer) {
     we asked the player if want to continue with the game inside the gameContinue variable(if the answer is "yes" the game will continue, else will break out of the if statement and while loop) 
     */
         
-    let gameContinue = prompt(`Would  you like to continue?`)
+    let gameContinue = confirm(`Would  you like to continue?`)
 
-    if(gameContinue === "no"){
-        break;
-    }else{
+    if(gameContinue == true){
         alert("OK keep playing");
+    }else{
+        break;
     }
 }
 
