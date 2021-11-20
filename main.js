@@ -23,7 +23,13 @@ if the username is grater than 10 the while loop will keep ask the name forever
 if the name is less then 11 will start the game
 */
 while(myName.length > 10 || myName.length < 1 ) {
-    alert("Please enter shorter name!");
+    alert(
+        `
+        Please enter shorter/longer name!
+        1 charachter minimum
+        10 character maximum
+        `
+    );
     myName=prompt("Plis enter your name");
 }
 myName = myName[0].toUpperCase() + myName.slice(1);
